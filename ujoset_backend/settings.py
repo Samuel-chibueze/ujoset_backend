@@ -65,16 +65,33 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
+# ✅ ALLOWED_HOSTS: Must NOT include http/https, just domain names
+ALLOWED_HOSTS = [
+    # "ujoset.com.ng",
+    # "www.ujoset.com.ng",
+    "test.e-healthpulse.com",  # add any subdomain you're using
+    "www.test.e-healthpulse.com",  # add any subdomain you're using
 
-# Allow requests from your frontend origin
+]
+
+# ✅ CORS_ALLOWED_ORIGINS: These should include protocol (http/https)
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "http://ujoset.com.ng",
+    "https://ujoset.com.ng",
+    "http://www.ujoset.com.ng",
+    "https://www.ujoset.com.ng",
+        "http://localhost:3000"
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
+# ✅ CSRF_TRUSTED_ORIGINS: These must include the protocol
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
+    "http://ujoset.com.ng",
+    "https://ujoset.com.ng",
+    "http://www.ujoset.com.ng",
+    "https://www.ujoset.com.ng",
+    "http://localhost:3000"
 ]
 
 SESSION_COOKIE_SAMESITE = "Lax"
